@@ -1,12 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
 </head>
 <body>
+    <div>
+        <a href="/">Home</a>
+    </div>
     <h1>{{ request.user }}{{ request.path }}</h1>
 
     {% block content %}{% endblock %}
+
+    <footer>
+        <p>{% now "Y" %}</p>
+    </footer>
 </body>
 </html>
