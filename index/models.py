@@ -10,4 +10,4 @@ class Book(models.Model):
     title = models.CharField(max_length=50)
     year = models.PositiveIntegerField()
     pages = models.PositiveIntegerField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
