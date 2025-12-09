@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'account',
     'blog',
     'chat',
+    'core',
 ]
 
 MIDDLEWARE = [
