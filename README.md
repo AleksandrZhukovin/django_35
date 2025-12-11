@@ -20,4 +20,4 @@ or use `python -m venv .venv` & `.venv/scripts/activate` commands.
 
 
 ## Admin
-- `python manage.py createsuperuser`
+- `python manage.py createsuperuser` - create admin user
