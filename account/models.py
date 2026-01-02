@@ -3,8 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    follows = models.ManyToManyField("self", related_name='followers')
-    followers = models.ManyToManyField("self", related_name='following')
+    follows = models.ManyToManyField("self")
+    followers = models.ManyToManyField("self")
 
     def follow(self, user):
         user.followers.add(self)
