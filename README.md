@@ -21,3 +21,8 @@ or use `python -m venv .venv` & `.venv/scripts/activate` commands.
 
 ## Admin
 - `python manage.py createsuperuser` - create admin user
+
+## Docker
+`docker-compose up` - build images and run services
+`docker-compose up -d --no-deps --build` - rebuild images
+`docker-compose exec web bash` - open terminal inside web container
