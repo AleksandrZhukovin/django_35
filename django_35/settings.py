@@ -30,7 +30,12 @@ SECRET_KEY = 'django-insecure-m*krvp@1jtzmwf9^7el)yr@$0gyq&o3i28@ft_lik6v406lmvs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "0.0.0.0",
+]
 
 
 # Application definition
@@ -42,6 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Debug toolbar https://pypi.org/project/django-debug-toolbar/
+    'debug_toolbar',
+    # First-party apps
     'index',
     'account',
     'blog',
@@ -50,6 +58,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Debug toolbar
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # Django default middlewares
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -169,3 +180,9 @@ EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+
+# Debug toolbar
+# https://django-debug-toolbar.readthedocs.io/en/latest/
+
+SHOW_TOOLBAR_CALLBACK = "debug_toolbar.middleware.show_toolbar_with_docker"
