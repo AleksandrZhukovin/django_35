@@ -30,8 +30,6 @@ SECRET_KEY = 'django-insecure-m*krvp@1jtzmwf9^7el)yr@$0gyq&o3i28@ft_lik6v406lmvs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
 INTERNAL_IPS = [
     "127.0.0.1",
     "0.0.0.0",
@@ -185,4 +183,9 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 # Debug toolbar
 # https://django-debug-toolbar.readthedocs.io/en/latest/
 
-SHOW_TOOLBAR_CALLBACK = "debug_toolbar.middleware.show_toolbar_with_docker"
+def show_toolbar(request):
+    return True
+
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+}
