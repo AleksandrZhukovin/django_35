@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 
+{% load cache %}
+
 {% block content %}
-    {% for post in posts %}
-    {% endfor %}
+
+        {% for post in posts %}
+            <h3>{{ post.content }}</h3>
+            <p>{{ post.user.username }}</p>
+            {% for c in post.comments.all %}
+                <p>{{ c }}</p>
+            {% endfor %}
+        {% endfor %}
+
+
 {% endblock %}
