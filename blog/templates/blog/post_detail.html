@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block context %}
+    <h3>{{ post.content }}</h3>
+
+    <button>Like</button>
+
+    <input type="text" name="comment">
+    <button>Add Comment</button>
+
+    {% for comment in post.comments.all %}
+        <p>{{ comment.text }}</p>
+    {% endfor %}
+{% endblock %}

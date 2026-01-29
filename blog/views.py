@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import PostForm
 from .models import Post
@@ -22,6 +23,14 @@ class PostCreateView(CreateView):
     success_url = '/home'
 
 
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'blog/posts/post_detail.html'
+    context_object_name = 'post'
+
+#     slug_field = 'id'
+#     slug_url_kwarg = 'pk'
+# Post.objects.get(title=2)
 # def home(request):
 #     posts = Post.objects.all().prefetch_related('comments').select_related('user')  # QuerySet [1, 2, 3, 4, ....]
 #     #  Post.objects.filter(user=request.user, content="Hello")
